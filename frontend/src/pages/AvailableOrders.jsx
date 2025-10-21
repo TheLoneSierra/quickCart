@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { useSocket } from '../contexts/SocketContext'
+import { API_URL } from '../config'
 import toast from 'react-hot-toast'
 
 const AvailableOrders = () => {
@@ -53,7 +54,7 @@ const AvailableOrders = () => {
   const fetchAvailableOrders = async () => {
     try {
       setLoading(true)
-      const response = await fetch('http://localhost:5000/api/partner/orders/available', {
+      const response = await fetch(`${API_URL}/api/partner/orders/available`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -102,7 +103,7 @@ const AvailableOrders = () => {
 
   const acceptOrder = async (orderId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/partner/orders/${orderId}/accept`, {
+      const response = await fetch(`${API_URL}/api/partner/orders/${orderId}/accept`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

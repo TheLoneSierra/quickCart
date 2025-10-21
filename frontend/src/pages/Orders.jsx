@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
+import { API_URL } from '../config'
 import toast from 'react-hot-toast'
 
 const Orders = () => {
@@ -16,7 +17,7 @@ const Orders = () => {
   const fetchOrders = async () => {
     try {
       setLoading(true)
-      const response = await fetch('http://localhost:5000/api/customer/orders', {
+      const response = await fetch(`${API_URL}/api/customer/orders`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

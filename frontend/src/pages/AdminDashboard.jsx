@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSocket } from '../contexts/SocketContext'
 import { useAuth } from '../contexts/AuthContext'
+import { API_URL } from '../config'
 import toast from 'react-hot-toast'
 
 const AdminDashboard = () => {
@@ -33,7 +34,7 @@ const AdminDashboard = () => {
   const fetchDashboardStats = async () => {
     try {
       setLoading(true)
-      const response = await fetch('http://localhost:5000/api/admin/dashboard', {
+      const response = await fetch(`${API_URL}/api/admin/dashboard`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -57,7 +58,7 @@ const AdminDashboard = () => {
   const fetchAllOrders = async () => {
     try {
       setLoading(true)
-      const response = await fetch('http://localhost:5000/api/admin/orders', {
+      const response = await fetch(`${API_URL}/api/admin/orders`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -81,7 +82,7 @@ const AdminDashboard = () => {
   const fetchAllPartners = async () => {
     try {
       setLoading(true)
-      const response = await fetch('http://localhost:5000/api/admin/partners', {
+      const response = await fetch(`${API_URL}/api/admin/partners`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

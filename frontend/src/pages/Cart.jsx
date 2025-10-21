@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useCart } from '../contexts/CartContext'
 import { useAuth } from '../contexts/AuthContext'
 import { useSocket } from '../contexts/SocketContext'
+import { API_URL } from '../config'
 import toast from 'react-hot-toast'
 
 const Cart = () => {
@@ -78,7 +79,7 @@ const Cart = () => {
       console.log('📦 Sending order data:', orderData)
       
       // Send order to backend
-      const response = await fetch('http://localhost:5000/api/customer/orders', {
+      const response = await fetch(`${API_URL}/api/customer/orders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

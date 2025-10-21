@@ -42,7 +42,6 @@ A full-stack quick commerce delivery platform that enables customers to order pr
 - 👥 Manage delivery partners
 - 📦 Monitor all orders in real-time
 - 📊 View system-wide metrics and analytics
-- 🔍 Search and filter orders
 
 ## 🛠️ Tech Stack
 
